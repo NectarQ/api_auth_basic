@@ -74,5 +74,5 @@ const reqIsValid = async (req, res, next) => {
 export default {
     isValidUserById,
     hasPermissions,
-    reqIsValid
+    reqIsValid,
 };
