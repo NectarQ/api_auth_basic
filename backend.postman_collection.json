@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "f1611d1d-95e2-4ec2-8114-31b1e27bf0e3",
+		"name": "backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36963476"
+	},
+	"item": [
+		{
+			"name": "lista de usuarios creados true",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJuYW1lIjoiQWxpY2UiLCJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwiaWQiOjgsInJvbGVzIjpbInVzZXIiXSwiZXhwaXJhdGlvbiI6MTcyMTAwOTYyODE1OH0=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/api/v1/users/getAllUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"getAllUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lista filtrada de usuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJuYW1lIjoiQWxpY2UiLCJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwiaWQiOjgsInJvbGVzIjpbInVzZXIiXSwiZXhwaXJhdGlvbiI6MTcyMTAwOTYyODE1OH0=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/v1/users/findUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"findUsers"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Alexa",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Alice",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Al",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "false",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "logBefore",
+							"value": "2024-06-11",
+							"disabled": true
+						},
+						{
+							"key": "logAfter",
+							"value": "2024-06-10",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lista (array) con usuarios para ser creados",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJuYW1lIjoiQWxpY2UiLCJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwiaWQiOjgsInJvbGVzIjpbInVzZXIiXSwiZXhwaXJhdGlvbiI6MTcyMTAwOTYyODE1OH0=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"users\": [\r\n        {\r\n            \"name\": \"Bob\",\r\n            \"email\": \"bob@example.com\",\r\n            \"password\": \"1234\",\r\n            \"password_second\": \"1234\",\r\n            \"cellphone\": \"2345678901\"\r\n        },\r\n        {\r\n            \"name\": \"Alice\",\r\n            \"email\": \"alice@example.com\",\r\n            \"password\": \"5678\",\r\n            \"password_second\": \"5678\",\r\n            \"cellphone\": \"3456789012\"\r\n        },\r\n        {\r\n            \"name\": \"Charlie\",\r\n            \"email\": \"charlie@example.com\",\r\n            \"password\": \"91011\",\r\n            \"password_second\": \"91011\",\r\n            \"cellphone\": \"4567890123\",\r\n            \"status\": false\r\n        },\r\n        {\r\n            \"name\": \"David\",\r\n            \"email\": \"david@example.com\",\r\n            \"password\": \"121314\",\r\n            \"password_second\": \"121314\",\r\n            \"cellphone\": \"5678901234\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/v1/users/bulkCreate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"bulkCreate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginAlice",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5678",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "alice@example.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJuYW1lIjoiQWxpY2UiLCJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwiaWQiOjgsInJvbGVzIjpbInVzZXIiXSwiZXhwaXJhdGlvbiI6MTcyMTAwOTE2MzU1N30=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\":\"alice@example.com\",\r\n  \"password\":\"5678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
