@@ -10,11 +10,7 @@
 - method return a BASE64 token with this information:
 - ```{ "name": ..., "email": ..., "roles": ..., "expiration":... }```
 
-En el controlador API_AUTH_BASIC/controllers/UserController.js, específicamente en la función bulkCreate. El servidor espera que los datos recibidos estén estructurados de una manera particular para poder procesarlos correctamente. 
-
-[ const { users } = req.body; ]
-
-Aquí, el servidor espera que req.body contenga una propiedad llamada users, la cual debería ser un arreglo de objetos de usuario. Este es el punto clave donde el servidor espera que los datos estén estructurados de esta manera:
+Los datos query estan estructurados de esta manera:
 
 {
     "users": [
@@ -27,6 +23,11 @@ Aquí, el servidor espera que req.body contenga una propiedad llamada users, la 
         }
     ]
 }
+
+El controlador extrae directamente los usuarios de req.body.users, haciendo que el código sea más claro y directo: const users = req.body.users; // Extracción directa
+
+Al tener los datos de los usuarios encapsulados bajo la clave "users", la estructura de la solicitud es consistente y predecible. Esto es útil cuando el cuerpo de la solicitud puede contener múltiples tipos de datos o cuando se sigue una convención de diseño de API.
+
 
 
 Creado por Alan Queupuán Punol.
